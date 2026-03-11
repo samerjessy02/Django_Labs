@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Instructors - University Portal{% endblock %}
+{% block content %}
+<h1>Instructors</h1>
+<ul>
+{% for instructor in instructors %}
+    <li><strong>{{ instructor.name }}</strong> - {{ instructor.email }} ({{ instructor.department }})</li>
+{% empty %}
+    <li>No instructors found</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ student.name }} - University Portal{% endblock %}
+{% block content %}
+<h1>{{ student.name }}</h1>
+<p><strong>Email:</strong> {{ student.email }}</p>
+<p><strong>Age:</strong> {{ student.age }}</p>
+<h2>Enrolled Courses</h2>
+<ul>
+{% for course in student.courses.all %}
+    <li><a class="item-link" href="/courses/{{ course.id }}/">{{ course.title }}</a> ({{ course.code }}) - Instructor: {{ course.instructor.name }}</li>
+{% empty %}
+    <li>No courses enrolled</li>
+{% endfor %}
+</ul>
+{% endblock %}

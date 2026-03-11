@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}University Portal{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f2f2f2; }
+        header { background: #004aad; color: white; padding: 20px; text-align: center; }
+        nav { margin-top: 15px; }
+        nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 20px auto; background: white; padding: 30px; border-radius: 10px; }
+        h1 { color: #004aad; margin-bottom: 20px; }
+        h2 { color: #004aad; margin-top: 20px; margin-bottom: 15px; font-size: 1.3em; }
+        ul { list-style: none; }
+        li { background: #e6f0ff; margin: 10px 0; padding: 15px; border-radius: 8px; }
+        li:hover { background: #cce0ff; }
+        a.item-link { color: #004aad; text-decoration: none; font-weight: bold; }
+        a.item-link:hover { text-decoration: underline; }
+        p { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>University Portal</h2>
+        <nav>
+            <a href="/students/">Students</a>
+            <a href="/courses/">Courses</a>
+            <a href="/instructors/">Instructors</a>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

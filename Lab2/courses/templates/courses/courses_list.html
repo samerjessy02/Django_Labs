@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Courses - University Portal{% endblock %}
+{% block content %}
+<h1>Courses</h1>
+<ul>
+{% for course in courses %}
+    <li><a class="item-link" href="/courses/{{ course.id }}/">{{ course.title }}</a> ({{ course.code }})</li>
+{% empty %}
+    <li>No courses found</li>
+{% endfor %}
+</ul>
+{% endblock %}

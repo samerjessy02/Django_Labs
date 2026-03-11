@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} - University Portal{% endblock %}
+{% block content %}
+{% if course.picture %}
+            <img src="{{ course.picture.url }}" alt="{{ course.name }}" class="img-fluid rounded" style="max-width:200px;">
+        {% else %}
+            <p>No picture available</p>
+        {% endif %}
+<h1>{{ course.title }}</h1>
+<p><strong>Code:</strong> {{ course.code }}</p>
+<p><strong>Instructor:</strong> {{ course.instructor.name }} ({{ course.instructor.department }})</p>
+<h2>Enrolled Students</h2>
+<ul>
+{% for student in course.students.all %}
+    <li><a class="item-link" href="/students/{{ student.id }}/">{{ student.name }}</a> - Age: {{ student.age }}</li>
+{% empty %}
+    <li>No students enrolled</li>
+{% endfor %}
+</ul>
+{% endblock %}
